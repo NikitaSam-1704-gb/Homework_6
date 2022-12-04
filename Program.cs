@@ -1,20 +1,9 @@
-﻿// Напишите программу, которая на вход принимает три числа и проверят,
+﻿//Задача 40 Напишите программу, которая на вход принимает три числа и проверят,
 // можетли существовать треугольник со сторонами данной длины
 
 using static System.Console;
 Clear();
 
-/*(int sideA, int sideB, int sideC) ParamretrTriangle()
-{
-    (int sideA, int sideB, int sideC)triangle;
-    Write("Введите значение стороны треугольника A ");
-    triangle.sideA=Convert.ToInt16(ReadLine());
-    Write("Введите значение стороны треугольника B ");
-    triangle.sideB=Convert.ToInt16(ReadLine());
-    Write("Введите значение стороны треугольника C ");
-    triangle.sideC=Convert.ToInt16(ReadLine());
-    return triangle;
-}*/
 
 int [] InputSide( int size, string[] message)
 {
