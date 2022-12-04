@@ -16,31 +16,50 @@ Clear();
     return triangle;
 }*/
 
-int InputSide( string message)
+int [] InputSide( int size, string[] message)
 {
-    Write(message);
-    int side=Convert.ToInt16(ReadLine());
-    //if(side<=0)
-    //    WriteLine(" Ошибка. Значения сторон положительные числа");
-    return side;
+    int[] array= new int[size];
+    WriteLine(message[0]);
+    for(int i=0; i<array.Length; i++)
+    {
+        Write(message[i+1]);
+        array[i]=Convert.ToInt16(ReadLine());
+    }
+    return array;
 }
 
-void RpintSide(int sideA, int sideB, int sideC)
+void RpintSide(int[] array)
 {
-    Write($" сторона А {sideA}  сторона B {sideB}  сторона C {sideC} ");
+    Write($" сторона А-> {array[0]}  сторона B-> {array[1]}  сторона C-> {array[2]} ");
     WriteLine();
-//    int chislo=Convert.ToInt16(ReadLine());
-//    return chislo;
 }
 
 
-string text;
-WriteLine ("Введите значения сторон треугольника");
-text=(" Введите значение стороны A -> ");
-int sideA=InputSide(text);
-text=(" Введите значение стороны B -> ");
-int sideB=InputSide(text);
-text=(" Введите значение стороны C -> ");
-int sideC=InputSide(text);
-//(int sideA, int sideB, int sideC)triangleWork=ParamretrTriangle();
-RpintSide(sideA, sideB, sideC);
+
+string[] text=new string[4];
+text[0]=("Введите значения сторон треугольника");
+text[1]=(" Значение стороны A -> ");
+text[2]=(" Значение стороны B -> ");
+text[3]=(" Значение стороны C -> ");
+
+int[] sideArray=InputSide(3, text);
+RpintSide(sideArray);
+
+int sideMaх=-1;
+int summ=0;
+for(int i=0; i<sideArray.Length; i++)
+{
+    if(sideArray[i]<=0)
+    {
+        WriteLine(" Ошибка, значение любой стороны треугольника должно быть больше 0");
+        break;
+    }
+    if(sideMaх<sideArray[i])
+        sideMaх=sideArray[i];
+    summ+=sideArray[i];
+}
+
+if(summ-sideMaх>sideMaх)
+    WriteLine("Можно построить треугольник с данными значениями сторон ");
+else
+    WriteLine(" Сданными значениями сторон треугольник построить НЕЛЬЗЯ");
