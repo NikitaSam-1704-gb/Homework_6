@@ -84,7 +84,7 @@ Write($" Число   {chisloWork}  в двоичной системе -> ");
 string codeBinary=ConvertingNumberDecimalBinary(chisloWork);
 WriteLine(codeBinary);*/
 
-// Не используя рекурсию выведите первые N чисел Фибоначи
+/*// Не используя рекурсию выведите первые N чисел Фибоначи
 // Если N=5 -> 0 1 1 2 3
 // Если N=7 -> 0 1 1 2 3 5 8
 
@@ -124,4 +124,50 @@ Clear();
 String text=(" Введите число элементов N-> ");
 int numberWork=IntFromConsole(text);
 string series=FibonacciSeries(numberWork);
-WriteLine($" ряд Фибоначи для {numberWork} элементов {series}");
+WriteLine($" ряд Фибоначи для {numberWork} элементов {series}");*/
+
+///Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+//0, 7, 8, -2, -2 -> 2
+//1, -7, 567, 89, 223-> 4
+
+using static System.Console;
+Clear();
+
+ string IntFromConsole( string message)
+ {
+    string str=""; 
+    Write(message);
+    str=ReadLine();
+    return str;
+ }
+
+ int CountPositive(string str)
+ {
+    int count=0;
+    int flag=1;
+    int n=str.Length;
+    //int[] strArray= new int[str.Length];
+    for(int i=0; i<str.Length; i++)
+    {
+        if(str[i]=='-' || str[i]=='0')
+            flag=-1;
+        
+        if(str[i]==' '&& flag==-1)
+            flag=1;
+        else 
+        {
+            if(str[i]==' ' && flag==1)
+                count++;
+        }
+        if(str[i]==str[str.Length-1] && flag==1)
+         count++;
+    }
+    return count;
+ }
+
+String text=(" Введите  N  чисел , через пробел, и нажмите Enter ");
+string strWork=IntFromConsole(text);
+//WriteLine($" с консоли ввели {strWork}");
+
+int countWork=CountPositive(strWork);
+WriteLine($"Количество положительных элементов - > {countWork}");
