@@ -1,20 +1,8 @@
-﻿// Напишите программу, которая на вход принимает три числа и проверят,
+﻿/* Задача 40// Напишите программу, которая на вход принимает три числа и проверят,
 // можетли существовать треугольник со сторонами данной длины
 
 using static System.Console;
 Clear();
-
-/*(int sideA, int sideB, int sideC) ParamretrTriangle()
-{
-    (int sideA, int sideB, int sideC)triangle;
-    Write("Введите значение стороны треугольника A ");
-    triangle.sideA=Convert.ToInt16(ReadLine());
-    Write("Введите значение стороны треугольника B ");
-    triangle.sideB=Convert.ToInt16(ReadLine());
-    Write("Введите значение стороны треугольника C ");
-    triangle.sideC=Convert.ToInt16(ReadLine());
-    return triangle;
-}*/
 
 int [] InputSide( int size, string[] message)
 {
@@ -62,4 +50,36 @@ for(int i=0; i<sideArray.Length; i++)
 if(summ-sideMaх>sideMaх)
     WriteLine("Можно построить треугольник с данными значениями сторон ");
 else
-    WriteLine(" Сданными значениями сторон треугольник построить НЕЛЬЗЯ");
+    WriteLine(" Сданными значениями сторон треугольник построить НЕЛЬЗЯ");*/
+
+// Задача 42 напишите программу преодразования десятичного числа в двоичное
+// 45 -> 101101
+// 3-> 11
+// 2-> 10 
+
+using static System.Console;
+Clear();
+
+ int IntFromConsole( string message)
+ {
+    Write(message);
+    int chislo=Convert.ToInt16(ReadLine());
+    return chislo;
+ }
+
+ string ConvertingNumberDecimalBinary(int chislo)
+ {
+    string code=(" ");
+    while(chislo!=0)
+    {
+        code=chislo%2+code;
+        chislo=chislo/2;
+    } 
+    return code;
+ }
+
+String text=(" Введите число ");
+int chisloWork=IntFromConsole(text);
+Write($" Число   {chisloWork}  в двоичной системе -> ");
+string codeBinary=ConvertingNumberDecimalBinary(chisloWork);
+WriteLine(codeBinary);
